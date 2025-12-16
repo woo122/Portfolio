@@ -1,4 +1,68 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Section scroll variables
+    let isScrolling = false;
+    let currentSection = 0;
+    const sections = document.querySelectorAll('section');
+    const totalSections = sections.length;
+    let scrollTimeout;
+
+    // Function to scroll to section
+    function scrollToSection(index) {
+        if (index < 0 || index >= totalSections) return;
+        
+        currentSection = index;
+        isScrolling = true;
+        
+        window.scrollTo({
+            top: sections[index].offsetTop,
+            behavior: 'smooth'
+        });
+        
+        // Reset scrolling flag after animation completes
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            isScrolling = false;
+        }, 1000);
+    }
+
+    // Handle wheel event for section scrolling
+    window.addEventListener('wheel', function(e) {
+        if (isScrolling) {
+            e.preventDefault();
+            return;
+        }
+
+        const delta = e.deltaY;
+        
+        // Only proceed for significant scrolls
+        if (Math.abs(delta) < 50) return;
+        
+        e.preventDefault();
+        
+        if (delta > 0 && currentSection < totalSections - 1) {
+            // Scroll down to next section
+            scrollToSection(currentSection + 1);
+        } else if (delta < 0 && currentSection > 0) {
+            // Scroll up to previous section
+            scrollToSection(currentSection - 1);
+        }
+    }, { passive: false });
+    
+    // Update current section on manual scroll
+    window.addEventListener('scroll', function() {
+        if (isScrolling) return;
+        
+        const scrollPosition = window.scrollY + (window.innerHeight / 3);
+        
+        sections.forEach((section, index) => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                currentSection = index;
+            }
+        });
+    });
     // Loading Screen
     const loadingScreen = document.createElement('div');
     loadingScreen.className = 'loading';
