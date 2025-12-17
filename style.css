@@ -1,4 +1,4 @@
-/* Reset & Base Styles */
+    /* Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -62,7 +62,7 @@ section {
         /* Profile Section */
         .profile-section {
             background: linear-gradient(120deg, #2E3047 0%, #34375A 100%);
-            padding: 50px 8% 50px;
+            padding: 100px 8% 50px;
             min-height: 100vh;
             position: relative;
             display: flex;
@@ -92,7 +92,7 @@ section {
             gap: 100px;
             position: relative;
             z-index: 0; /* Ensure content stays below the header */
-            padding-top: 200px;
+            padding-top: 250px;
             flex: 1;
             overflow-y: auto;
         }
@@ -236,11 +236,10 @@ h3{
     width: 100%;
 }
 table{width: 100%; margin: 0 0 40px;}
-    table{width: 100%; margin: 0 0 40px;}
 
     td {
         color: white;
-        font-size: 18px;
+        font-size: 20px;
     }
 
 .profile-photo {
@@ -257,7 +256,7 @@ table{width: 100%; margin: 0 0 40px;}
 /* Portfolio Section */
 .portfolio-section {
     min-height: 100vh;
-    padding: 50px 8% 50px;
+    padding: 100px 8% 50px;
     position: relative;
     background: rgba(0, 0, 0, 0.5) url('assets/tokyo.jpg') no-repeat center center;
     background-size: cover;
