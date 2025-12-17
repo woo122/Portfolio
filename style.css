@@ -242,10 +242,15 @@ table{
     border-collapse: separate; /* 중요 */
     border-spacing: 0 12px; 
 }
-
+.tt{
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+     gap: 8px; 
+}
 td {
     color: white;
     font-size: 20px;
+    
 }
 
 tr {
@@ -335,7 +340,7 @@ tr {
     flex-direction: column;
     gap: 15px;
     padding-top: 15px;
-    margin-top: 200px;
+    margin-top: 190px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     margin-bottom: 100px;
 }
