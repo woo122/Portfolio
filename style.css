@@ -228,6 +228,7 @@ section {
     flex: 1;
     min-width: 300px;
     margin-left: 0;
+    gap: 10px;
 }
 h3{
     margin: 0 0 10px;
@@ -235,22 +236,32 @@ h3{
     font-size: 36px;
     width: 100%;
 }
-table{width: 100%; margin: 0 0 40px;}
+table{
+    width: 100%; 
+    margin: 0 0 40px;
+    border-collapse: separate; /* 중요 */
+    border-spacing: 0 12px; 
+}
 
-    td {
-        color: white;
-        font-size: 20px;
-    }
+td {
+    color: white;
+    font-size: 20px;
+}
+
+tr {
+    gap: 10px;
+}
 
 .profile-photo {
     width: 50%;
-    padding-left: 100px;
+    padding-left: 50px;
 }
 .contact {
     font-size: 32px;
     color: white;
     margin-top: -50px;
     margin-bottom: 70px;
+    font-weight: bold;
 }
 
 /* Portfolio Section */
@@ -331,8 +342,8 @@ table{width: 100%; margin: 0 0 40px;}
 
 .info-item {
     display: flex;
-    gap: 15px;
-    font-size: 20px;
+    gap: 30px;
+    font-size: 22px;
 }
 
 .info-label {
@@ -347,7 +358,7 @@ table{width: 100%; margin: 0 0 40px;}
 }
 .site-description {
     font-size: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .outline-btn {
