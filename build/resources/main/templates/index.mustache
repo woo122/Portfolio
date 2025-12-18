@@ -1,0 +1,85 @@
+{{< base}}
+
+{{$title}}메인{{/title}}
+
+{{$content}}
+
+<!-- 🔶 풀폭 배너 -->
+<div
+    style="
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        background-color: #EEA94A;
+        text-align: center;
+        overflow-x: hidden;
+    "
+>
+    <img
+        src="/images/2512011751104901321_663.jpg"
+        alt="배너 이미지"
+        style="display: inline-block; max-width: none; height: auto;"
+        onerror="this.style.display='none'"
+    >
+</div>
+
+<!-- 🔥 인기상품 -->
+<div class="container my-5">
+    <h2 class="mb-4">🔥 인기상품</h2>
+
+    <div class="d-flex flex-wrap gap-3">
+        {{#featuredProducts}}
+        <div class="card" style="width: 250px;">
+            <img
+                src="{{imageUrl}}"
+                class="card-img-top"
+                style="width: 250px; height: 250px; object-fit: cover;"
+            >
+            <div class="card-body text-center">
+                <h5>{{name}}</h5>
+                <p>{{price}}원</p>
+            </div>
+        </div>
+        {{/featuredProducts}}
+
+        {{^featuredProducts}}
+        <p class="text-muted">인기상품이 없습니다.</p>
+        {{/featuredProducts}}
+    </div>
+</div>
+
+<!-- 💸 할인상품 -->
+<div class="container my-5">
+    <h2 class="mb-4">💸 할인상품</h2>
+
+    <div class="d-flex flex-wrap gap-3">
+        {{#discountedProducts}}
+        <div class="card border-danger" style="width: 300px;">
+            <img
+                src="{{imageUrl}}"
+                class="card-img-top"
+                style="width: 300px; height: 300px; object-fit: cover;"
+            >
+            <div class="card-body text-center">
+                <h5>{{name}}</h5>
+                <p class="text-danger">{{price}}원</p>
+            </div>
+        </div>
+        {{/discountedProducts}}
+
+        {{^discountedProducts}}
+        <p class="text-muted">할인상품이 없습니다.</p>
+        {{/discountedProducts}}
+    </div>
+</div>
+
+{{/content}}
+
+{{$scripts}}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('index 페이지 로드 완료');
+    });
+</script>
+{{/scripts}}
+
+{{/base}}

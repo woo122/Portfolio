@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+<body style="margin:0; background:#f7f7f7; font-family:Arial, sans-serif;">
+
+<div style="
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+">
+    <div style="
+        width:420px;
+        padding:40px 30px;
+        background:#fff;
+        border-radius:8px;
+        box-shadow:0 8px 24px rgba(0,0,0,0.08);
+        text-align:center;
+    ">
+
+        <!-- 로고 -->
+        <div style="margin-bottom:30px;">
+            <a href="/">
+                <img src="/images/logo.svg" alt="로고"
+                     style="height:48px; width:auto;">
+            </a>
+        </div>
+
+        <!-- 로그인 폼 -->
+        <form action="/login" method="post">
+
+            <div style="margin-bottom:14px;">
+                <input type="text"
+                       name="username"
+                       placeholder="아이디"
+                       required
+                       style="
+                           width:350px;
+                           height:45px;
+                           padding:0 14px;
+                           border:1px solid #ddd;
+                           border-radius:6px;
+                           font-size:14px;
+                       ">
+            </div>
+
+            <div style="margin-bottom:18px;">
+                <input type="password"
+                       name="password"
+                       placeholder="비밀번호"
+                       required
+                       style="
+                           width:350px;
+                           height:45px;
+                           padding:0 14px;
+                           border:1px solid #ddd;
+                           border-radius:6px;
+                           font-size:14px;
+                       ">
+            </div>
+
+            <button type="submit"
+                    style="
+                        width:380px;
+                        height:45px;
+                        background:#FF0E38;
+                        color:#fff;
+                        font-size:15px;
+                        font-weight:bold;
+                        border:none;
+                        border-radius:6px;
+                        cursor:pointer;
+                    ">
+                로그인
+            </button>
+
+        </form>
+
+        <!-- 하단 링크 -->
+        <div style="margin-top:18px; font-size:13px;">
+            <a href="/join"
+               style="color:#666; text-decoration:none;">
+                회원가입
+            </a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
