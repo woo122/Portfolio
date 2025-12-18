@@ -1,0 +1,156 @@
+<header class="sticky-top">
+    <!-- 메인 네비게이션 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-0">
+        <div class="container" style="max-width: 1200px;">
+            <!-- flex는 container 안쪽에서 -->
+            <div class="d-flex align-items-center justify-content-between w-100">
+
+                <!-- 로고 -->
+                <a href="/">
+                <img src="/images/logo.svg" alt="로고" style="height:36px; width:auto;">
+                </a>
+
+                <!-- 검색창 (PC 전용) -->
+                <div class="d-none d-lg-block" style="width: 500px;">
+                    <form class="d-flex" action="/search" method="get" style="height: 40px;">
+                        <div class="input-group">
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="검색어를 입력하세요"
+                                   name="q"
+                                   style="height: 40px;">
+                            <button class="btn btn-outline-primary d-flex align-items-center justify-content-center"
+                                    type="submit"
+                                    style="width: 40px; height: 40px; padding: 0;">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 우측 아이콘 영역 -->
+                <div class="d-flex align-items-center">
+
+                    {{#userName}}
+                    <a href="/mypage"
+                       class="text-dark mx-3 text-decoration-none d-flex flex-column align-items-center">
+                        <i class="bi bi-person fs-3"></i>
+                        <span class="small">마이페이지</span>
+                    </a>
+                    <div class="vr mx-2" style="height: 30px;"></div>
+                    {{/userName}}
+
+                    <a href="/cart"
+                       class="text-dark mx-3 text-decoration-none d-flex flex-column align-items-center position-relative">
+                        <i class="bi bi-cart3 fs-3"></i>
+                        <span class="small">장바구니</span>
+                        <span class="position-absolute top-0 end-0 translate-middle badge rounded-pill bg-danger"
+                              style="font-size: 0.6rem;">
+                            5
+                        </span>
+                    </a>
+
+                    <!-- 모바일 토글 버튼 -->
+                    <button class="navbar-toggler border-0 ms-2"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- 모바일 메뉴 -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+
+                    {{#userName}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center"
+                           href="#"
+                           id="userDropdown"
+                           role="button"
+                           data-bs-toggle="dropdown">
+                            <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center"
+                                 style="width: 32px; height: 32px;">
+                                <i class="bi bi-person text-white"></i>
+                            </div>
+                            <span class="ms-2">{{userName}}님</span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="/mypage/orders"><i class="bi bi-box-seam me-2"></i>주문내역</a></li>
+                            <li><a class="dropdown-item" href="/mypage/wishlist"><i class="bi bi-heart me-2"></i>위시리스트</a></li>
+                            <li><a class="dropdown-item" href="/mypage/coupon"><i class="bi bi-ticket-perforated me-2"></i>쿠폰</a></li>
+                            <li><a class="dropdown-item" href="/mypage/point"><i class="bi bi-coin me-2"></i>포인트</a></li>
+                            <li><hr class="dropdown-divider"></li>
+
+                            {{#isAdmin}}
+                            <li>
+                                <a class="dropdown-item" href="/admin/products">
+                                    <i class="bi bi-bag-check me-2"></i>관리자 상품 관리
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-danger" href="/admin">
+                                    <i class="bi bi-shield-lock me-2"></i>관리자 페이지
+                                </a>
+                            </li>
+                            {{/isAdmin}}
+
+                            <li><a class="dropdown-item" href="/mypage/setting"><i class="bi bi-gear me-2"></i>설정</a></li>
+                        </ul>
+                    </li>
+                    {{/userName}}
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 하단 카테고리 바 -->
+    <div class="bg-light py-2 border-bottom">
+        <div class="container d-flex justify-content-between align-items-center"
+             style="max-width: 1200px;">
+
+            <div class="d-flex align-items-center">
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown">
+                        카테고리
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/category/all">전체보기</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/category/electronics">전자제품</a></li>
+                        <li><a class="dropdown-item" href="/category/fashion">패션</a></li>
+                        <li><a class="dropdown-item" href="/category/beauty">뷰티</a></li>
+                        <li><a class="dropdown-item" href="/category/home">홈/리빙</a></li>
+                        <li><a class="dropdown-item" href="/category/food">푸드</a></li>
+                    </ul>
+                </div>
+
+                <div class="ms-4 d-none d-md-flex">
+                    <a href="/best" class="text-dark text-decoration-none small me-4">베스트</a>
+                    <a href="/new" class="text-dark text-decoration-none small me-4">신상품</a>
+                    <a href="/discount" class="text-dark text-decoration-none small me-4">할인상품</a>
+                    <a href="/event" class="text-dark text-decoration-none small">이벤트</a>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center">
+                {{^userName}}
+                <a href="/login" class="text-dark text-decoration-none small me-3">로그인</a>
+                <a href="/join" class="text-dark text-decoration-none small">회원가입</a>
+                {{/userName}}
+
+                {{#userName}}
+                <span class="text-muted small me-3">{{userName}}님 환영합니다</span>
+                <a href="/logout" class="text-dark text-decoration-none small">로그아웃</a>
+                {{/userName}}
+            </div>
+        </div>
+    </div>
+</header>

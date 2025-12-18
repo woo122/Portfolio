@@ -1,0 +1,71 @@
+<div style="
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+">
+    <div style="
+        width:420px;
+        padding:40px 30px;
+        background:#fff;
+        border-radius:8px;
+        box-shadow:0 8px 24px rgba(0,0,0,0.08);
+        text-align:center;
+    ">
+    <div style="margin-bottom:30px;">
+            <a href="/">
+                <img src="/images/logo.svg" alt="로고"
+                     style="height:48px; width:auto;">
+            </a>
+        </div>
+
+<form action="/joinProc" method="post" style="text-align:center;">
+
+    <input type="text" name="loginId" placeholder="아이디" required
+           style="width:350px;height:45px;margin-bottom:14px;
+                  padding:0 14px;border:1px solid #ddd;
+                  border-radius:6px;font-size:14px;">
+
+    <input type="email" name="email" placeholder="이메일" required
+           style="width:350px;height:45px;margin-bottom:14px;
+                  padding:0 14px;border:1px solid #ddd;
+                  border-radius:6px;font-size:14px;">
+
+    <input type="password" name="password" placeholder="비밀번호" required
+           style="width:350px;height:45px;margin-bottom:14px;
+                  padding:0 14px;border:1px solid #ddd;
+                  border-radius:6px;font-size:14px;">
+
+    <input type="text" name="nickname" placeholder="닉네임" required
+           style="width:350px;height:45px;margin-bottom:18px;
+                  padding:0 14px;border:1px solid #ddd;
+                  border-radius:6px;font-size:14px;">
+
+    <button type="submit"
+            style="width:350px;height:45px;
+                   background:#FF0E38;color:#fff;
+                   font-size:15px;font-weight:bold;
+                   border:none;border-radius:6px;
+                   cursor:pointer;">
+        회원가입
+    </button>
+
+</form>
+    </div>
+</div>
+
+<script>
+    function validateJoinForm() {
+        const email = document.getElementById("email").value;
+
+        // 이메일 형식 체크 (실무 표준)
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            alert("이메일 형식이 아닙니다.");
+            return false; // ❌ 서버로 요청 안 감
+        }
+
+        return true; // ⭕ 서버로 전송
+    }
+</script>

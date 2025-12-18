@@ -1,0 +1,64 @@
+{{< base}}
+
+{{$title}}상품 수정 - {{/title}}
+
+{{$content}}
+<div class="container p-4" style="max-width: 1200px;">
+    <h2 class="mb-4">상품 수정</h2>
+
+    <form action="/admin/products/{{product.id}}" method="post" class="border rounded p-3 bg-light">
+        <div class="mb-3">
+            <label class="form-label">상품 ID</label>
+            <input type="text" class="form-control" value="{{product.id}}" disabled>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">상품 이름</label>
+            <input type="text" name="name" class="form-control" value="{{product.name}}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">설명</label>
+            <textarea name="description" class="form-control" rows="3">{{product.description}}</textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">가격</label>
+            <input type="number" name="price" class="form-control" min="0" value="{{product.price}}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">재고 수량</label>
+            <input type="number" name="stockQuantity" class="form-control" min="0" value="{{product.stockQuantity}}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">이미지 URL</label>
+            <input type="text" name="imageUrl" class="form-control" value="{{product.imageUrl}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">카테고리</label>
+            <select name="category" class="form-select" required>
+                {{#categories}}
+                    <option value="{{.}}" {{#isSelectedCategory}}{{.}}{{/isSelectedCategory}}>{{.}}</option>
+                {{/categories}}
+            </select>
+        </div>
+        <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" name="featured" id="featuredCheck"
+                   value="true" {{#product.featured}}checked{{/product.featured}}>
+            <label class="form-check-label" for="featuredCheck">
+                메인 인기상품으로 표시
+            </label>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" name="discounted" id="discountedCheck"
+                   value="true" {{#product.discounted}}checked{{/product.discounted}}>
+            <label class="form-check-label" for="discountedCheck">
+                할인상품으로 표시
+            </label>
+        </div>
+        <div class="d-flex justify-content-between">
+            <a href="/admin/products" class="btn btn-outline-secondary">목록으로</a>
+            <button type="submit" class="btn btn-primary">저장</button>
+        </div>
+    </form>
+</div>
+{{/content}}
+
+{{/base}}
